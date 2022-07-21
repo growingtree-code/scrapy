@@ -25,7 +25,7 @@ class St11Spider(scrapy.Spider):
 
     def parse_subcategory(self, response):
         print('parse_subcategory', response.meta['maincategory_name'])        
-        subcategory_names = response.css('div.best_category_box ul#metaCtgrUl li button::text').getall()#왼쪽 서브카테고리가 아닌 startURL 페이지 내 중간위치에 있는 메뉴에 서브 카테고리 전체
+        subcategory_names = response.css('div.sub_category_box ul li a::text').getall()#왼쪽 서브카테고리가 아닌 startURL 페이지 내 중간위치에 있는 메뉴에 서브 카테고리 전체
         
         subcategory_lists = response.css('div.sub_category_box li a::attr("onclick")').re('\(.*\)')
         subcategory_idcs = []
