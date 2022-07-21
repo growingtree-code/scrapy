@@ -8,6 +8,7 @@ ROBOTSTXT_OBEY = False
 FEED_EXPORT_ENCODING = 'cp949'#or utf-8 한글깨질경우
 DUPEFILTER_CLASS = 'scrapy.dupefilters.BaseDupeFilter' #비슷한 주소로 요청하는 코드가 여러개여도 모두 실행 될 수 있게
 
-# ITEM_PIPELINES = {
-#     'market_11.pipelines.Market_11Pipeline': 300,     # 숫자(0 ~ 1000 입력)는 Pipeline의 적용 순서를 의미
-# }                                           # 숫자가 작은 것부터 차례대로 적용됨
+ITEM_PIPELINES = {
+    'market_11.pipelines.Market11Pipeline': 300,
+}                                        
+FEED_EXPORT_FIELDS = ['main_category_name', 'sub_category_name', 'ranking', 'title', 'ori_price', 'dis_price']   
